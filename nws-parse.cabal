@@ -1,0 +1,37 @@
+cabal-version:      3.4
+name:               nws-parse
+version:            0.1.0.0
+synopsis:           Parse NWS reports
+description:        A collection of parsers for National Weather Service data
+license:            BSD-3-Clause
+license-file:       LICENSE
+author:             Winston Troughton
+maintainer:         Winston Troughton <winston@troughton.net>
+category:           Text
+build-type:         Simple
+extra-doc-files:    CHANGELOG.md
+
+common warnings
+    ghc-options: -Wall
+
+library
+    import:           warnings
+    exposed-modules:  NWS.CLI
+    build-depends:    base ^>=4.17.2.1,
+                      attoparsec,
+                      text
+    hs-source-dirs:   src
+    default-language: GHC2021
+
+test-suite nws-parse-test
+    import:           warnings
+    default-language: GHC2021
+    type:             exitcode-stdio-1.0
+    hs-source-dirs:   test
+    main-is:          Main.hs
+    build-depends:
+        base ^>=4.17.2.1,
+        nws-parse,
+        tasty,
+        tasty-hunit,
+        text
