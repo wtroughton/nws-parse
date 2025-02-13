@@ -27,3 +27,6 @@ cabal.project.local~
 
 # macOS
 .DS_Store
+
+# nix
+.direnv

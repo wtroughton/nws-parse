@@ -3,7 +3,7 @@ indentation: 4
 column-limit: none
 function-arrows: trailing
 comma-style: leading
-import-export-style: diff-friendly
+import-export-style: leading
 import-grouping: by-scope-then-qualified
 indent-wheres: true
 record-brace-space: false
