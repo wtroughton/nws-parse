@@ -1,50 +1,37 @@
 {
-  nixConfig = {
-    extra-substituters = "https://horizon.cachix.org";
-    extra-trusted-public-keys = "horizon.cachix.org-1:MeEEDRhRZTgv/FFGCv3479/dmJDfJ82G6kfUDxMSAw0=";
-  };
-
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
-    horizon-platform.url = "github:wtroughton/horizon-platform";
-    horizon-devtools.url = "git+https://gitlab.horizon-haskell.net/package-sets/horizon-devtools";
+
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = 
-    inputs@
-    { self
-    , flake-parts
-    , horizon-devtools
-    , horizon-platform
-    , nixpkgs
-    , ...
-    }:
-
+  outputs =
+    inputs@{ nixpkgs, flake-parts, ... }:
     flake-parts.lib.mkFlake { inherit inputs; } {
       systems = [
         "aarch64-darwin"
-        "aarch64-linux"
         "x86_64-linux"
       ];
-      perSystem = { pkgs, system, ... }:
+      perSystem =
+        { pkgs, system, ... }:
         let
-
-          myOverlay = final: prev: { nws-parse = final.callCabal2nix "nws-parse" ./. { }; };
-
-          legacyPackages = horizon-platform.legacyPackages.${system}.extend myOverlay;
-
+          haskellPackages = pkgs.haskellPackages;
         in
         {
 
-          devShells.default = legacyPackages.nws-parse.env.overrideAttrs (attrs: {
-            buildInputs = attrs.buildInputs ++ [
-              legacyPackages.cabal-install
-              horizon-devtools.legacyPackages.${system}.ghcid
-            ];
-          });
+          devShells.default = pkgs.mkShell {
 
-          packages.default = legacyPackages.nws-parse;
+            buildInputs = [
+              pkgs.zlib
+              haskellPackages.cabal-install
+              haskellPackages.ghc
+
+              haskellPackages.ghcid
+              haskellPackages.fourmolu
+            ];
+          };
+
+          formatter = pkgs.nixfmt-rfc-style;
 
         };
     };

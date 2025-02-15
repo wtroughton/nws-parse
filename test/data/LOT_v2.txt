@@ -1,0 +1,78 @@
+
+317
+CDUS43 KLOT 302237
+CLILOT
+
+CLIMATE REPORT
+NATIONAL WEATHER SERVICE CHICAGO IL
+437 PM CST THU JAN 30 2025
+
+...................................
+
+...THE ROMEOVILLE WFO CLIMATE SUMMARY FOR JANUARY 30 2025...
+VALID TODAY AS OF 0400 PM LOCAL TIME.
+
+CLIMATE NORMAL PERIOD: 1991 TO 2020
+CLIMATE RECORD PERIOD: 1992 TO 2025
+
+
+WEATHER ITEM   OBSERVED RECORD YEAR NORMAL DEPARTURE LAST
+                VALUE   VALUE       VALUE  FROM      YEAR
+                                           NORMAL
+............................................................
+TEMPERATURE (F)
+ TODAY
+  MAXIMUM         47     53    2012  32     15       41
+  MINIMUM         25    -23    2019  16      9       34
+  AVERAGE         36                 24     12       38
+
+PRECIPITATION (IN)
+  TODAY            T      0.72 2002   0.07  -0.07     0.04
+  MONTH TO DATE    0.32               2.13  -1.81     3.43
+  SINCE DEC 1      2.12               4.28  -2.16     6.73
+  SINCE JAN 1      0.32               2.13  -1.81     3.43
+
+SNOWFALL (IN)
+  TODAY            0.0    7.9  2002   0.4   -0.4      0.0
+  MONTH TO DATE    7.5               10.2   -2.7     13.8
+  SINCE DEC 1      9.4               17.7   -8.3     14.7
+  SINCE JUL 1     11.6               19.0   -7.4     17.3
+  SNOW DEPTH       0
+
+DEGREE DAYS
+ HEATING
+  TODAY           29                 41    -12       27
+  MONTH TO DATE 1333               1236     97     1202
+  SINCE DEC 1   2380               2340     40     2043
+  SINCE JUL 1   3242               3532   -290     3164
+
+ COOLING
+  TODAY            0                  0      0        0
+  MONTH TO DATE    0                  0      0        0
+  SINCE DEC 1      0                  0      0        0
+  SINCE JAN 1      0                  0      0        0
+............................................................
+
+
+THE ROMEOVILLE WFO CLIMATE NORMALS FOR TOMORROW
+                         NORMAL    RECORD    YEAR
+ MAXIMUM TEMPERATURE (F)   32        57      2012
+ MINIMUM TEMPERATURE (F)   16       -24      2019
+
+
+SUNRISE AND SUNSET
+JANUARY 30 2025.......SUNRISE   7:06 AM CST   SUNSET   5:06 PM CST
+JANUARY 31 2025.......SUNRISE   7:05 AM CST   SUNSET   5:07 PM CST
+
+
+-  INDICATES NEGATIVE NUMBERS.
+R  INDICATES RECORD WAS SET OR TIED.
+MM INDICATES DATA IS MISSING.
+T  INDICATES TRACE AMOUNT.
+
+
+
+
+$$
+
+
