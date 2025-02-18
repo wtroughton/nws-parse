@@ -2,8 +2,11 @@
 
 module Parser.NWS
     ( parseCreationTime
+    , parseFullReport
+    , parseReportHeader
     , parseReportTime
     , parseMonth
+    , skipSepLine
     , ReportTime
     , CreationTime
     ) where
@@ -12,6 +15,10 @@ import Control.Monad (void)
 import Data.Text (Text)
 import Data.Void (Void)
 
+import Data.Text.IO qualified as Text
+
+import Control.Monad.Combinators qualified as M
+import Data.Char qualified as Char
 import Data.Maybe qualified as Maybe
 import Data.Text qualified as Text
 import Data.Time qualified as Time
@@ -25,12 +32,20 @@ type ReportTime = Time.LocalTime
 
 type CreationTime = Time.LocalTime
 
+parseFullReport :: Parser (CreationTime, ReportTime)
+parseFullReport = do
+    creationTime <- parseReportHeader
+    skipSepLine
+    M.space1
+    reportTime <- parseReportTime
+    return (creationTime, reportTime)
+
 parseCreationTime :: Parser CreationTime
 parseCreationTime = do
     -- Parse the next 7 space-separated values
-    values <- M.count 7 (M.takeWhile1P Nothing (/= ' ') <* M.space)
+    values <- M.count 7 $ M.takeWhile1P Nothing (not . Char.isSpace) <* M.space
 
-    -- Combine them into a single string
+    -- Combine into single string
     let timeStr = Text.unpack $ Text.unwords values
 
     -- Parse the combined string into LocalTime
@@ -53,10 +68,10 @@ parseReportTime = do
     void M.space
     year <- L.decimal
     void $ M.string "..."
-    void M.space1
 
     -- Parse the optional time (e.g. VALID TODAY AS OF 0400 PM LOCAL TIME)
-    timeOfDay <- M.optional $ do
+    timeOfDay <- M.optional . M.try $ do
+        void M.space
         void $ M.string "VALID TODAY AS OF"
         void M.space
         hourMinute <- M.count 4 M.digitChar
@@ -85,6 +100,23 @@ skipUntilClimateSummary = do
         -- Skip the part before CLIMATE SUMMARY
         (_, rest) -> do
             void $ M.takeP Nothing (Text.length input - Text.length rest)
+
+skipSepLine :: Parser ()
+skipSepLine = do
+    M.skipSome (M.char '.')
+    void M.eol
+    pure ()
+
+parseReportHeader :: Parser CreationTime
+parseReportHeader = do
+    M.space1
+    _ <- M.count 3 $ M.skipManyTill M.anySingle M.eol
+    M.space1
+    _ <- M.string "CLIMATE REPORT"
+    void M.eol
+    _ <- M.string "NATIONAL WEATHER SERVICE"
+    _ <- M.skipManyTill M.anySingle M.eol
+    parseCreationTime
 
 parseMonth :: Parser Int
 parseMonth = do

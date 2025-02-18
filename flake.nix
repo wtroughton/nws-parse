@@ -18,7 +18,6 @@
           haskellPackages = pkgs.haskellPackages;
         in
         {
-
           devShells.default = pkgs.mkShell {
 
             buildInputs = [
@@ -26,13 +25,13 @@
               haskellPackages.cabal-install
               haskellPackages.ghc
 
-              haskellPackages.ghcid
               haskellPackages.fourmolu
+              haskellPackages.ghcid
+              haskellPackages.haskell-language-server
             ];
           };
 
           formatter = pkgs.nixfmt-rfc-style;
-
         };
     };
 }
