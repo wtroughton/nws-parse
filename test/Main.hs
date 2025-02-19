@@ -5,7 +5,7 @@ module Main (main) where
 import Test.Tasty (TestTree)
 import Test.Tasty.HUnit ((@?=))
 
-import Data.Text qualified as Text
+import Data.Text.IO qualified as Text
 import Data.Time qualified as Time
 import Test.Tasty qualified as Tasty
 import Test.Tasty.HUnit qualified as HUnit
@@ -57,6 +57,6 @@ testReports =
             report <- Text.readFile "test/data/SLC_v1.txt"
             let result = M.parseMaybe NWS.parseFullReport report
             case result of
-                Just (creationTime, reportTime) -> creationTime @? Time.LocalTime (Time.fromGregorian 2025 2 10) (Time.TimeOfDay 12 53 0)
+                Just (creationTime, reportTime) -> creationTime @?= Time.LocalTime (Time.fromGregorian 2025 2 10) (Time.TimeOfDay 0 53 0)
                 Nothing -> HUnit.assertFailure $ "Parse failed."
         ]

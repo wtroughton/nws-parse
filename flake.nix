@@ -18,10 +18,12 @@
           haskellPackages = pkgs.haskellPackages;
         in
         {
-          devShells.default = pkgs.mkShell {
+          packages.default = haskellPackages.callPackage ./default.nix { };
 
+          devShells.default = pkgs.mkShell {
             buildInputs = [
               pkgs.zlib
+              pkgs.cabal2nix
               haskellPackages.cabal-install
               haskellPackages.ghc
 

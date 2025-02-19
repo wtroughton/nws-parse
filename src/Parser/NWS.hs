@@ -15,8 +15,6 @@ import Control.Monad (void)
 import Data.Text (Text)
 import Data.Void (Void)
 
-import Data.Text.IO qualified as Text
-
 import Control.Monad.Combinators qualified as M
 import Data.Char qualified as Char
 import Data.Maybe qualified as Maybe
@@ -38,6 +36,7 @@ parseFullReport = do
     skipSepLine
     M.space1
     reportTime <- parseReportTime
+    _ <- M.takeRest -- Skip to end of input
     return (creationTime, reportTime)
 
 parseCreationTime :: Parser CreationTime
