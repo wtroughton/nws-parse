@@ -59,4 +59,10 @@ testReports =
             case result of
                 Just (creationTime, reportTime) -> creationTime @?= Time.LocalTime (Time.fromGregorian 2025 2 10) (Time.TimeOfDay 0 53 0)
                 Nothing -> HUnit.assertFailure $ "Parse failed."
+        , HUnit.testCase "LOT Precipation Timestamp" $ do
+            report <- Text.readFile "test/data/LOT_v3.txt"
+            let result = M.parseMaybe NWS.parseFullReport report
+            case result of
+                Just (creationTime, reportTime) -> creationTime @?= Time.LocalTime (Time.fromGregorian 2025 2 12) (Time.TimeOfDay 16 43 0)
+                Nothing -> HUnit.assertFailure $ "Parse failed."
         ]

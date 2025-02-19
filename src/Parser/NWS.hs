@@ -112,7 +112,7 @@ parseReportHeader = do
     _ <- M.count 3 $ M.skipManyTill M.anySingle M.eol
     M.space1
     _ <- M.string "CLIMATE REPORT"
-    void M.eol
+    _ <- M.skipManyTill M.anySingle M.eol
     _ <- M.string "NATIONAL WEATHER SERVICE"
     _ <- M.skipManyTill M.anySingle M.eol
     parseCreationTime

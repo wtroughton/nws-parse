@@ -1,0 +1,78 @@
+
+554
+CDUS43 KLOT 122243
+CLILOT
+
+CLIMATE REPORT...PRECIPITATION IS AS OF 1200 PM CST.
+NATIONAL WEATHER SERVICE CHICAGO IL
+443 PM CST WED FEB 12 2025
+
+...................................
+
+...THE ROMEOVILLE WFO CLIMATE SUMMARY FOR FEBRUARY 12 2025...
+VALID TODAY AS OF 0400 PM LOCAL TIME.
+
+CLIMATE NORMAL PERIOD: 1991 TO 2020
+CLIMATE RECORD PERIOD: 1992 TO 2025
+
+
+WEATHER ITEM   OBSERVED RECORD YEAR NORMAL DEPARTURE LAST
+                VALUE   VALUE       VALUE  FROM      YEAR
+                                           NORMAL
+............................................................
+TEMPERATURE (F)
+ TODAY
+  MAXIMUM         27     53    2005  35     -8       44
+  MINIMUM         21     -8    2014  19      2       22
+  AVERAGE         24                 27     -3       33
+
+PRECIPITATION (IN)
+  TODAY            0.02   0.35 2019   0.07  -0.05     0.00
+  MONTH TO DATE    0.05               0.78  -0.73     0.22
+  SINCE DEC 1      2.97               5.12  -2.15     6.95
+  SINCE JAN 1      1.17               2.97  -1.80     3.65
+
+SNOWFALL (IN)
+  TODAY            1.0    1.8  1997   0.3    0.7      0.0
+                               2020
+  MONTH TO DATE    1.0                4.4   -3.4       T
+  SINCE DEC 1     10.4               22.5  -12.1     14.7
+  SINCE JUL 1     12.6               23.8  -11.2     17.3
+  SNOW DEPTH      0
+
+DEGREE DAYS
+ HEATING
+  TODAY           41                 38      3       32
+  MONTH TO DATE  427                475    -48      321
+  SINCE DEC 1   2835               2853    -18     2394
+  SINCE JUL 1   3697               4045   -348     3515
+
+ COOLING
+  TODAY            0                  0      0        0
+  MONTH TO DATE    0                  0      0        0
+  SINCE DEC 1      0                  0      0        0
+  SINCE JAN 1      0                  0      0        0
+............................................................
+
+
+THE ROMEOVILLE WFO CLIMATE NORMALS FOR TOMORROW
+                         NORMAL    RECORD    YEAR
+ MAXIMUM TEMPERATURE (F)   36        51      2023
+ MINIMUM TEMPERATURE (F)   19        -3      2021
+
+
+SUNRISE AND SUNSET
+FEBRUARY 12 2025......SUNRISE   6:51 AM CST   SUNSET   5:22 PM CST
+FEBRUARY 13 2025......SUNRISE   6:50 AM CST   SUNSET   5:24 PM CST
+
+
+-  INDICATES NEGATIVE NUMBERS.
+R  INDICATES RECORD WAS SET OR TIED.
+MM INDICATES DATA IS MISSING.
+T  INDICATES TRACE AMOUNT.
+
+
+
+
+$$
+
