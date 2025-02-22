@@ -48,7 +48,7 @@ parseCreationTime = do
     let timeStr = Text.unpack $ Text.unwords values
 
     -- Parse the combined string into LocalTime
-    let format = "%-I%M %p %Z %a %b %d %Y"
+    let format = "%-I%M %p %Z %a %b %-d %Y"
     case Time.parseTimeM True Time.defaultTimeLocale format timeStr :: Maybe Time.LocalTime of
         Just localTime -> return localTime
         Nothing -> fail $ "Failed to parse time: " ++ timeStr

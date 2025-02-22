@@ -23,6 +23,7 @@ testTree =
         "Parser"
         [ climateSummaries
         , testReports
+        , timeFormats
         ]
 
 climateSummaries :: TestTree
@@ -46,6 +47,30 @@ climateSummaries =
             let result = M.parseMaybe NWS.parseReportTime str
             case result of
                 Just time -> time @?= Time.LocalTime (Time.fromGregorian 2025 2 9) (Time.TimeOfDay 16 0 0)
+                Nothing -> HUnit.assertFailure $ "Parse failed"
+        ]
+
+timeFormats :: TestTree
+timeFormats =
+    Tasty.testGroup
+        "Creation Time"
+        [ HUnit.testCase "Single digit day" $ do
+            let str = "631 AM EST MON FEB 3 2025"
+            let result = M.parseMaybe NWS.parseCreationTime str
+            case result of
+                Just time -> time @?= Time.LocalTime (Time.fromGregorian 2025 2 3) (Time.TimeOfDay 6 31 0)
+                Nothing -> HUnit.assertFailure $ "Parse failed"
+        , HUnit.testCase "Zero-padded day" $ do
+            let str = "631 AM EST MON FEB 03 2025"
+            let result = M.parseMaybe NWS.parseCreationTime str
+            case result of
+                Just time -> time @?= Time.LocalTime (Time.fromGregorian 2025 2 3) (Time.TimeOfDay 6 31 0)
+                Nothing -> HUnit.assertFailure $ "Parse failed"
+        , HUnit.testCase "Double digit day" $ do
+            let str = "631 AM EST FRI FEB 14 2025"
+            let result = M.parseMaybe NWS.parseCreationTime str
+            case result of
+                Just time -> time @?= Time.LocalTime (Time.fromGregorian 2025 2 14) (Time.TimeOfDay 6 31 0)
                 Nothing -> HUnit.assertFailure $ "Parse failed"
         ]
 
